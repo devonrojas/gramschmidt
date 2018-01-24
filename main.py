@@ -51,3 +51,7 @@ print
 orthon_basis = np.array(orthonormal(orthog_basis))
 print("Your orthonormal basis is:")
 print(orthon_basis)
+
+print("Devon is a Loser with a  capital L")
+print("Devon is a Loser with a  capital L")
+
