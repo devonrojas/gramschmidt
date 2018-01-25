@@ -1,4 +1,8 @@
+##DEVON##
+##THIS IS ANOTHER TEST##
 import numpy as np
+import inquirer
+from sympy import *
 
 np.set_printoptions(precision=4, suppress=True)
 
@@ -6,15 +10,54 @@ print("Gram-Schmidt Orthonormalization Process")
 print
 print("---------------------------------------")
 print
-x = input("Please specify a space in R^n: ")
-print
 
-b = [ ]
+questions = [
+    inquirer.List('type',
+                    message="What form is your basis in?",
+                    choices=['Vectors', 'Matrices'],
+                    ),
+]
 
-for i in xrange(x):
-    vector = [int(x) for x in raw_input("Enter basis vector " + str(i+1) + ": ").split()]
-    b.append(vector)
-basis = np.array(b)
+answers = inquirer.prompt(questions)
+
+for key in answers:
+    choice = answers[key]
+    if choice is 'Vectors':
+        x = input("Please specify a space in R^n: ")
+        print
+        b = [ ]
+        for i in xrange(x):
+            vector = [int(x) for x in raw_input("Enter basis vector " + str(i+1) + ": ").split()]
+            b.append(vector)
+        basis = np.array(b)
+    if choice is 'Matrices':
+        x = input("Please specify your matrix dimension: ")
+        dimension = int(x)
+        print
+        mtemp = [ ]
+        zeroes = zeros(int(x), 1)
+        for i in xrange(x):
+            temp = [int(x) for x in raw_input("Enter row " + str(i+1) + ": ").split()]
+            length = len(temp)
+            mtemp.append(temp)
+        zerotest = zeros(1, length+1)
+        pprint(zerotest)
+        matrix = Matrix(mtemp)
+        matrix = matrix.col_insert(length+1, zeroes)
+        print
+        pprint(matrix)
+        rref_matrix = matrix.rref()
+        matrix = rref_matrix[0]
+        print
+        pprint(matrix)
+        print
+        for i in xrange(dimension):
+            zero = 0
+            for j in xrange(length+1):
+                temp = matrix[i, j]
+                zero = zero + temp
+            if zero!=0:
+                pprint(matrix[i, :])
 
 print
 print("Your basis is:")
