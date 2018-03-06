@@ -17,8 +17,9 @@ January 25, 2018
 
 Summary
 
-	The objective was to create a simple program to demonstrate the Gram-Schmidt Orthonormalization Process. I created my program in Python. It takes a user-defined space in Rn, with various vector input, calculates the necessary projection vectors and norms, and displays each part of the Gram-Schmidt algorithm. The example output below shows the process in R2 and R3. 
-  
+> The objective was to create a simple program to demonstrate the Gram-Schmidt Orthonormalization Process. I created my program in Python. It takes a user-defined space in Rn, with various vector input, calculates the necessary projection vectors and norms, and displays each part of the Gram-Schmidt algorithm. The example output below shows the process in R2 and R3. 
+
+
 Example Output
 
 Gram-Schmidt Orthonormalization Process
@@ -32,7 +33,7 @@ Enter basis vector 2: 4 5
 
 Your basis is:
 [[1 3]
- [4 5]]
+[4 5]]
 
 Your orthogonal basis is:
 [[ 1.   3. ]
